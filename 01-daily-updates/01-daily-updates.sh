@@ -1,15 +1,28 @@
 #!/bin/bash
 
-#
-#    Script to update OS on Ubuntu and Centos
-#
-#   link to this page in ram format - http://www.ninja.pt/wiki/01?action=raw
-#
-#   suggestion: wget http://www.ninja.pt/wiki/01?action=raw -O 01-dayly-updates.sh
-#
-#
+##
+## Description: This script is a simple way to automatically update the linux machine/server
+## with the latest updated
+## 
+## Written by: Antonio Feijao #FeijaoUK
+##
+## Last update: 2017-01-13 - shared this file on github
+## 
 
+##
+## TODO: confirm the package lsb_release is installed OR find another reliable way to confirm the OS  
+##
+## Script currently support updates for Centos, Ubuntu amd Amazon Linux 
+##
+## link to this page in ram format - ....
+##
+## suggestion to download this file:
+## wget http://www.ninja.pt/wiki/01?action=raw -O 01-dayly-updates.sh
+##
 
+#
+# bash script function for Ubuntu updates
+#
 update_ubuntu() {
     echo -e "\n running update... \n"
     apt-get update -y
@@ -25,6 +38,9 @@ update_ubuntu() {
 }
 
 
+#
+# bash script function for Centos and AmznAMI updates
+#
 update_centos() {
     echo -e "\n running update... \n"
     yum update -y
@@ -34,6 +50,10 @@ update_centos() {
 }
 
 
+#
+# Program start here, 
+# there is a dependency for have the package lsb_release installed
+#
 os=$(lsb_release -si )
 
 echo -e "\n My OS is ${os} \n"
