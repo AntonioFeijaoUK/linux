@@ -114,9 +114,7 @@ echo -e "\n\n ...flushing existent dns cache... \n\n"
 # If you wanted to refresh your settings you could disable and then run
 service network-manager restart && echo "OK network-manager" || echo "NOK network-manager"
 
-
-service dnsmasq restart && echo "OK dnsmasq" || echo "NOK dnsmasq"
-
+( service dnsmasq stop && service dnsmasq start ) && echo "OK dnsmasq" || echo "NOK dnsmasq"
 
 
 echo -e "\n\nScript $0 completed ... \n\n\n"
